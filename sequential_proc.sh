@@ -1,3 +1,4 @@
+#!/bin/bash
 # Read landmark names from input arg #1 and 
 # for each name create a folder that collects
 # all point cloud file into it that have been 
@@ -5,7 +6,7 @@
 # Run a train/eval/test process for each folder
 
 # Usage : "sh train_lnd.sh caesar landmark_names.txt smpl_folder_dir file_locs.pk mapper.py has_lnd.py"
-#!/bin/bash
+
 echo "input args - $1 $2 $3 $4 $5 $6"
 
 # create a new_directory for all caesar landmarks
@@ -36,8 +37,7 @@ while read name
         # handle punctuations - replace spaces and forward slashes with underscores; commas with spaces
         new_name=$(transform_name "$name") #echo "$name" | sed -e 's/[\/\ ]/_/g' -e 's/,//g' | tr A-Z a-z)
         # create a folder titled = "_" separated names in the landmark name e.g 
-        # the folder named 10th_Rib_Midspine represents,  10th Rib Midspine 
-        #echo "new_name - $new_name"
+        # the folder named 10th_rib_midspine represents 10th Rib Midspine 
         NAMES+=("$name")
         if [ ! -d $new_name ];
         then 
