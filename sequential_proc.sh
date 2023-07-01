@@ -24,7 +24,7 @@ then
     exit 1
 fi
 
-transform_name(){
+function transform_name(){
     local name="$1"
     local new_name=$(echo "$name" | sed -e 's/[\/\ ]/_/g' -e 's/,//g' | tr A-Z a-z)
     echo "$new_name"
